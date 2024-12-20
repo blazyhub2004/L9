@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Task</title>
+    <!-- Link to jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        li {
+            background-color: #e1f5fe;
+            padding: 8px;
+            margin-bottom: 5px;
+            border-radius: 5px;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: #4CAF50;
+            position: relative;
+            margin: 20px auto;
+            text-align: center;
+            line-height: 100px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .animated {
+            background-color: #FF5722 !important;
+            /* Change color after animation */
+        }
+
+        button {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #1976D2;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>jQuery Animation and Append Example</h1>
+
+    <!-- Existing Content -->
+    <p id="myParagraph">This is an example paragraph.</p>
+
+    <ul id="myList">
+        <li>List Item 1</li>
+        <li>List Item 2</li>
+        <li>List Item 3</li>
+    </ul>
+
+    <!-- Button to trigger append -->
+    <button id="appendButton">Append Content</button>
+
+    <!-- Animated Box -->
+    <div class="box" id="myBox">Click Me</div>
+
+    <script>
+        // Ensure the script runs after the document is ready
+        $(document).ready(function () {
+
+            // Part (a): Append content to paragraph and list
+            $("#appendButton").click(function () {
+                // Append text to the paragraph
+                $("#myParagraph").append(" This is the appended content.");
+
+                // Append a new list item
+                $("#myList").append("<li>New List Item</li>");
+            });
+
+            // Part (b) and (c): Animate the box and change its color
+            $("#myBox").click(function () {
+                // Animate the box
+                $(this).animate({
+                    width: "200px",    // Increase width
+                    height: "200px",   // Increase height
+                    opacity: 0.7,      // Reduce opacity
+           
+                }, 1000, function () {
+                    // Callback function to change color after animation
+                    $(this).addClass("animated");
+                });
+            });
+
+        });
+    </script>
+</body>
+
+</html>
